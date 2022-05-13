@@ -4,6 +4,10 @@ import {
   faSpinner,
   faMagnifyingGlass,
   faSignIn,
+  faEllipsisVertical,
+  faEarthAsia,
+  faCircleQuestion,
+  faKeyboard,
 } from "@fortawesome/free-solid-svg-icons";
 import "tippy.js/dist/tippy.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +19,7 @@ import images from "~/assets/images";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import AccountItem from "~/components/Layout/AccountItem";
 import Button from "~/components/Button";
+import Menu from "~/components/Popper/Menu";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -22,9 +27,25 @@ function Header() {
 
   useEffect(() => {
     setTimeout(() => {
-      setSearchResults([1]);
+      setSearchResults([]);
     }, 0);
   }, []);
+
+  const MENU_ITEM = [
+    {
+      icon: <FontAwesomeIcon icon={faEarthAsia} />,
+      title: "English",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+      title: "Feedback and Help",
+      to: "/feedback",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faKeyboard} />,
+      title: "Keyboard shortcuts",
+    },
+  ];
 
   return (
     <header className={cx("wrapper")}>
@@ -67,6 +88,12 @@ function Header() {
           <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>
             Log in
           </Button>
+
+          <Menu items={MENU_ITEM}>
+            <button className={cx("more-btn")}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
