@@ -13,6 +13,7 @@
 .inner {
   height: 100%;
   width: var(--default-layout-width);
+  padding: 0 var(--default-layout-horizontal-spacer);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,7 +55,7 @@
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: var(--search-top-spacer);
     right: var(--search-button-width);
@@ -93,9 +94,29 @@
   color: rgba(22, 24, 35, 0.75);
 }
 
+.action {
+  display: flex;
+  align-items: center;
+}
 .more-btn {
   font-size: 2rem;
   margin-left: 17px;
   padding: 4px 8px;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.action-btn {
+  color: #161823;
+  font-size: 2.2rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 12px;
 }
